@@ -18,7 +18,8 @@ class AccountController extends Controller
 
     public function show(Account $account)
     {
-        return view('accounts', compact('account'));
+        $types = Account::getTypes();
+        return view('accounts', compact('account', 'types'));
     }
 
     public function store(Request $request)
@@ -41,6 +42,28 @@ class AccountController extends Controller
 
         return redirect()->route('home')->with('success', 'Account created successfully!');
     }
+
+    public function update(Request $request, Account $account)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'reference' => 'required|string|max:255|unique:accounts,reference,' . $account->id,
+            'type' => 'required|string|max:255',
+            'docs' => 'nullable|string',
+        ]);
+
+        $docs = $request->docs ? explode(',', $request->docs) : [];
+
+        $account->update([
+            'name' => $request->name,
+            'reference' => $request->reference,
+            'type' => $request->type,
+            'docs' => $docs,
+        ]);
+
+        return redirect()->route('home')->with('success', 'Account updated successfully!');
+    }
+
 
 }
 

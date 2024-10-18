@@ -11,11 +11,15 @@ body {
 
 .container {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: column;
+    gap: 20px;
     padding: 20px;
+    max-width: 900px;
+    width: 100%;
 }
+
 
 .account-details {
     background-color: #282828;
@@ -23,7 +27,8 @@ body {
     padding: 30px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
     max-width: 400px;
-    width: 100%;
+    flex: 1;
+    margin-right: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -32,11 +37,11 @@ body {
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
 }
 
-h1 {
+h1,
+h2 {
     color: #f5f5f5;
     margin-bottom: 15px;
     text-align: center;
-    font-size: 1.5em;
 }
 
 p {
@@ -76,6 +81,34 @@ a {
 }
 
 a:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #3a3a3a;
+    color: #f5f5f5;
+}
+
+button {
+    background-color: #ffffff;
+    color: #181818;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    margin-top: 20px;
+}
+
+button:hover {
     background-color: #e0e0e0;
     transform: translateY(-2px);
 }

@@ -28,4 +28,5 @@ use App\Http\Controllers\AccountController;
 Route::get('/', [AccountController::class, 'index'])->name('home');
 Route::post('/accounts', [AccountController::class, 'store'])->name('accounts.store');
 Route::get('/accounts/{account}', [AccountController::class, 'show'])->name('accounts.show');
+Route::put('/accounts/{account}', [AccountController::class, 'update'])->name('accounts.update');
 

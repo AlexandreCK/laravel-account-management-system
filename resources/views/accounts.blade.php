@@ -26,6 +26,31 @@
             </ul>
             <a href="{{ route('home') }}" class="back-button">Back to Home</a>
         </div>
+
+        <div class="account-details">
+            <h1>Edit Account</h1>
+            <form action="{{ route('accounts.update', $account->id) }}" method="POST">
+                @csrf
+                @method('PUT')
+
+                <p><strong>Account Name:</strong></p>
+                <input type="text" id="name" name="name" value="{{ $account->name }}" required>
+
+                <p><strong>Reference:</strong></p>
+                <input type="text" id="reference" name="reference" value="{{ $account->reference }}" required>
+
+                <p><strong>Account Type:</strong></p>
+                <select name="type" required>
+                    @foreach($types as $type)
+                    <option value="{{ $type }}">{{ $type }}</option>
+                    @endforeach
+                </select>
+                <p><strong>Docs:</strong></p>
+                <textarea id="docs" name="docs" placeholder="Comma separated">{{ implode(',', $account->docs) }}</textarea>
+                <p></p>
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
     </div>
 </body>
 
