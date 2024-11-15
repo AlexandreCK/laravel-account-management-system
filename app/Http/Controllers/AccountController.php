@@ -63,7 +63,4 @@ class AccountController extends Controller
 
         return redirect()->route('home')->with('success', 'Account updated successfully!');
     }
-
-
 }
-
