@@ -20,8 +20,8 @@ Web application built with Laravel to manage user accounts.
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/AlexandreCK/laravel-introductory-project.git
-cd accounts-management-system
+git clone https://github.com/AlexandreCK/laravel-account-management-system
+cd account-management-system
 ```
 
 ### 2. Install Laradock
